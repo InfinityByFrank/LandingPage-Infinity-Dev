@@ -12,6 +12,8 @@ export default defineConfig({
   site: 'https://infinitydev.agency',
   trailingSlash: 'always',
 
+  build: { inlineStylesheets: 'always' },
+
   integrations: [react()],
 
   vite: {

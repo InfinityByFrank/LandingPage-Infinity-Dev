@@ -7,7 +7,7 @@ export const Manifesto = () => (
 
       <div className="man-stage">
         <figure className="man-img l" data-parallax="-0.12">
-          <img src="/about/foodco-feed.webp" alt="Food&Co: app móvil" width="737" height="1100" loading="lazy" decoding="async" />
+          <img src="/about/foodco-feed.webp" alt="Food&Co: app móvil" width="351" height="760" loading="lazy" decoding="async" />
         </figure>
         <p className="man-text scrub" data-scrub>
           <Words
@@ -17,7 +17,7 @@ export const Manifesto = () => (
           />
         </p>
         <figure className="man-img r" data-parallax="0.14">
-          <img src="/about/lens-oscuro.webp" alt="Infinity Lens: modo oscuro" width="506" height="1100" loading="lazy" decoding="async" />
+          <img src="/about/lens-oscuro.webp" alt="Infinity Lens: modo oscuro" width="350" height="760" loading="lazy" decoding="async" />
         </figure>
       </div>
 

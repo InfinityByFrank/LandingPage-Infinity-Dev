@@ -1,5 +1,11 @@
 ---
+import '@fontsource-variable/space-grotesk/wght.css'
+import '@fontsource-variable/manrope/wght.css'
+import '@fontsource/jetbrains-mono/latin-400.css'
+import '@fontsource/jetbrains-mono/latin-500.css'
 import '../theme/global.css'
+import spaceGroteskLatin from '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url'
+import manropeLatin from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url'
 
 interface Props {
 	title?: string;
@@ -17,6 +23,8 @@ interface Props {
 	alternates?: { es: string; en: string };
 	/** Carga Turnstile (antispam del formulario de contacto) */
 	forms?: boolean;
+	/** Pantalla de carga de marca (solo en el inicio) */
+	loader?: boolean;
 }
 
 const SITE_NAME = 'Infinity Dev';
@@ -24,7 +32,7 @@ const EMAIL = 'contacto@infinitydev.agency';
 
 const copy = {
 	es: {
-		title: 'Infinity Dev | Desarrollo de software a medida, apps y dashboards',
+		title: 'Infinity Dev | Software a medida, apps y dashboards',
 		description:
 			'Diseñamos y desarrollamos apps web y móviles, servidores y dashboards a la medida de tu negocio. Sin plantillas: producto propio, de la idea al lanzamiento.',
 		imageAlt: 'Infinity Dev: software único, hecho para tu historia',
@@ -33,7 +41,7 @@ const copy = {
 		otherLocale: 'en_US',
 	},
 	en: {
-		title: 'Infinity Dev | Custom software development, apps and dashboards',
+		title: 'Infinity Dev | Custom software, apps and dashboards',
 		description:
 			'We design and build web and mobile apps, servers and dashboards tailored to your business. No templates: a product of your own, from idea to launch.',
 		imageAlt: 'Infinity Dev: unique software, built for your story',
@@ -55,6 +63,7 @@ const {
 	noindex = false,
 	jsonLd = [],
 	forms = true,
+	loader = false,
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL('https://infinitydev.agency');
@@ -68,6 +77,13 @@ const alternateUrls = alternates
 
 const organizationId = new URL('/#organization', siteUrl).toString();
 
+const services: Array<{ es: string; en: string }> = [
+	{ es: 'Aplicaciones web a medida', en: 'Custom web applications' },
+	{ es: 'Aplicaciones móviles iOS y Android', en: 'iOS and Android mobile apps' },
+	{ es: 'Servidores, APIs y backend', en: 'Servers, APIs and backend' },
+	{ es: 'Dashboards empresariales', en: 'Business dashboards' },
+];
+
 const baseJsonLd = [
 	{
 		'@context': 'https://schema.org',
@@ -75,7 +91,7 @@ const baseJsonLd = [
 		'@id': organizationId,
 		name: SITE_NAME,
 		url: siteUrl.toString(),
-		logo: new URL('/logo_basic.webp', siteUrl).toString(),
+		logo: new URL('/apple-touch-icon.png', siteUrl).toString(),
 		image: new URL('/og-image.jpg', siteUrl).toString(),
 		description,
 		email: EMAIL,
@@ -87,6 +103,16 @@ const baseJsonLd = [
 				availableLanguage: ['es', 'en'],
 			},
 		],
+		slogan: lang === 'en' ? 'Unique software, built for your story' : 'Software único, hecho para tu historia',
+		sameAs: ['https://www.linkedin.com/in/frank-giovanni-s-10a798360'],
+		hasOfferCatalog: {
+			'@type': 'OfferCatalog',
+			name: lang === 'en' ? 'Software development services' : 'Servicios de desarrollo de software',
+			itemListElement: services.map((s) => ({
+				'@type': 'Offer',
+				itemOffered: { '@type': 'Service', name: s[lang], provider: { '@id': organizationId } },
+			})),
+		},
 		knowsAbout: [
 			'Desarrollo de software a medida',
 			'Aplicaciones web',
@@ -132,16 +158,13 @@ const structuredData = [...baseJsonLd, ...jsonLd];
 		{alternateUrls && <link rel="alternate" hreflang="es" href={alternateUrls.es} />}
 		{alternateUrls && <link rel="alternate" hreflang="en" href={alternateUrls.en} />}
 		{alternateUrls && <link rel="alternate" hreflang="x-default" href={alternateUrls.es} />}
+		<link rel="preload" as="font" type="font/woff2" href={spaceGroteskLatin} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={manropeLatin} crossorigin />
 		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 		<link rel="icon" type="image/svg+xml" href="/logo-basic.svg" />
-		<link rel="apple-touch-icon" href="/logo_basic.webp" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
-		/>
+		
 
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -192,9 +215,11 @@ const structuredData = [...baseJsonLd, ...jsonLd];
 		<div class="progress" aria-hidden="true"></div>
 		<div class="bottom-blur" aria-hidden="true"></div>
 		<div class="cursor" aria-hidden="true"><i></i></div>
-		<div class="loader" id="loader" aria-hidden="true">
-			<div class="ld-mid"><div class="ld-name">Infinity <em>by</em> Frank</div></div>
-		</div>
+		{loader && (
+			<div class="loader" id="loader" aria-hidden="true">
+				<div class="ld-mid"><div class="ld-name">Infinity <em>by</em> Frank</div></div>
+			</div>
+		)}
 		<slot />
 	</body>
 </html>

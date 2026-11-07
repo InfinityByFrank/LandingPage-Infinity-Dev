@@ -13,12 +13,12 @@ export const NavBar = ({ lang = 'es', alternates = { es: '/', en: '/en/' } }: Pr
     <header className="nav" id="nav">
       <div className="nav-inner">
         <a href={`${p}/#top`} className="brand">
-          <img className="logo-c" src="/logo-color.svg" alt="Infinity Dev" width="30" height="34" />
+          <img className="logo-c" src="/logo-color.svg" alt="" width="30" height="34" />
           <img className="logo-l" src="/logo-basic.svg" alt="" aria-hidden="true" width="30" height="34" />
           <span className="brand-name">Infinity <b className="grad-text">Dev</b></span>
           <span className="brand-chip"><span data-es>Hecho a medida</span><span data-en>Built custom</span></span>
         </a>
-        <nav className="nav-links">
+        <nav className="nav-links" aria-label={lang === 'en' ? 'Main' : 'Principal'}>
           <a href={`${p}/#nosotros`}
           ><span data-es>Nosotros</span><span data-en>About</span></a
           >
@@ -35,8 +35,8 @@ export const NavBar = ({ lang = 'es', alternates = { es: '/', en: '/en/' } }: Pr
         </nav>
         <div className="nav-right">
           <div className="lang" id="lang">
-            <a href={alternates.es} hrefLang="es" lang="es" data-lang="es" className={lang === 'es' ? 'active' : undefined} aria-label="Español" aria-current={lang === 'es' ? 'true' : undefined}>ES</a>
-            <a href={alternates.en} hrefLang="en" lang="en" data-lang="en" className={lang === 'en' ? 'active' : undefined} aria-label="English" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+            <a href={alternates.es} hrefLang="es" lang="es" data-lang="es" className={lang === 'es' ? 'active' : undefined} aria-label="ES · Español" aria-current={lang === 'es' ? 'true' : undefined}>ES</a>
+            <a href={alternates.en} hrefLang="en" lang="en" data-lang="en" className={lang === 'en' ? 'active' : undefined} aria-label="EN · English" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
           </div>
           <a href={`${p}/#contacto`} className="btn btn-primary nav-cta">
             <span data-es>Cotizar</span><span data-en>Get a quote</span>

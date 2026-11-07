@@ -18,7 +18,7 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
             <a href={`${p}/#top`} className="brand">
               <img
                 src="/logo-basic.svg"
-                alt="Infinity Dev"
+                alt=""
                 style={{ width: '38px', height: '38px' }}
               />
               <span className="brand-name">Infinity <b className="grad-text">Dev</b></span
@@ -34,7 +34,7 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
             </p>
           </div>
           <div className="foot-col">
-            <h5><span data-es>Servicios</span><span data-en>Services</span></h5>
+            <p className="fh"><span data-es>Servicios</span><span data-en>Services</span></p>
             <a href={`${p}/#servicios`}
             ><span data-es>Aplicaciones web</span><span data-en>Web apps</span
             ></a
@@ -49,7 +49,7 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
             <a href={`${p}/#servicios`}>Dashboards</a>
           </div>
           <div className="foot-col">
-            <h5><span data-es>Empresa</span><span data-en>Company</span></h5>
+            <p className="fh"><span data-es>Empresa</span><span data-en>Company</span></p>
             <a href={`${p}/#proceso`}
             ><span data-es>Proceso</span><span data-en>Process</span></a
             >
@@ -65,7 +65,7 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
             >
           </div>
           <div className="foot-col">
-            <h5><span data-es>Contacto</span><span data-en>Contact</span></h5>
+            <p className="fh"><span data-es>Contacto</span><span data-en>Contact</span></p>
             <a href="mailto:contacto@infinitydev.agency">contacto@infinitydev.agency</a>
             <a href={`${p}/#contacto`}
             ><span data-es>Cotizar proyecto</span><span data-en

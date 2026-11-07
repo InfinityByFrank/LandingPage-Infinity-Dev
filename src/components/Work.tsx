@@ -65,16 +65,16 @@ export const Work = ({ lang = 'es' }: { lang?: Lang }) => {
                 <span><em><Lx es={<>PROYECTO</>} en={<>PROJECT</>} /></em> <T t={p.title} /></span>
               </div>
               <div className="wrap sl-wrap">
-                <button type="button" className="sl-panel" style={{ background: p.tone }} onClick={() => setOpenId(p.id)} aria-haspopup="dialog">
+                <div className="sl-panel" style={{ background: p.tone }} onClick={() => setOpenId(p.id)}>
                   <div className="sl-copy">
                     <h3><T t={p.title} /></h3>
                     <p><T t={p.summary} /></p>
-                    <span className="sl-more">
+                    <button type="button" className="sl-more" aria-haspopup="dialog" onClick={() => setOpenId(p.id)}>
                       <Lx es={<>Ver proyecto</>} en={<>View project</>} /> <Plus />
-                    </span>
+                    </button>
                   </div>
                   <Art project={p} />
-                </button>
+                </div>
               </div>
             </article>
           ))}

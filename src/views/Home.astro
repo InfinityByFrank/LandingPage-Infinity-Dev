@@ -39,6 +39,7 @@ const alternates = { es: "/", en: "/en/" };
 	alternates={alternates}
 	canonical={alternates[lang]}
 	jsonLd={[faqJsonLd]}
+	loader
 >
 	<NavBar lang={lang} alternates={alternates} />
 
@@ -52,7 +53,7 @@ const alternates = { es: "/", en: "/en/" };
 		<WhyInfinity />
 
 		<!-- Hidrata solo lo que tiene estado: el modal de proyectos -->
-		<Work lang={lang} client:load />
+		<Work lang={lang} client:visible />
 
 		<Beliefs />
 

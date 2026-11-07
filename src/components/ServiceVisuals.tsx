@@ -53,7 +53,7 @@ export const VisMobile = () => (
       <rect x="498" y="80" width="34" height="7" rx="3.5" fill="rgba(255,255,255,.2)" />
       <circle cx="515" cy="150" r="34" fill="none" stroke="rgba(255,255,255,.15)" strokeWidth="8" />
       <circle className="v-draw" style={len(214)} cx="515" cy="150" r="34" fill="none" stroke="url(#g-mob)" strokeWidth="8" strokeLinecap="round" transform="rotate(-90 515 150)" />
-      <text x="515" y="156" textAnchor="middle" fill="#fff" fontFamily="Space Grotesk" fontWeight="700" fontSize="18">92%</text>
+      <text x="515" y="156" textAnchor="middle" fill="#fff" fontFamily="Space Grotesk Variable" fontWeight="700" fontSize="18">92%</text>
       {[0, 1, 2].map((i) => <rect key={i} x="456" y={206 + i * 38} width="118" height="28" rx="6" fill="rgba(255,255,255,.07)" />)}
     </g>
     <path className="v-flow" d="M410 190 C 425 190, 425 210, 440 210" fill="none" stroke="#20C0E0" strokeWidth="1.5" />
@@ -91,8 +91,8 @@ export const VisDash = () => (
     <g fontFamily="JetBrains Mono" fontSize="11" fill="rgba(255,255,255,.5)">
       <text x="120" y="70">REVENUE</text><text x="500" y="70">USERS</text>
     </g>
-    <text x="120" y="108" fill="#fff" fontFamily="Space Grotesk" fontWeight="700" fontSize="34">$48.2k</text>
-    <text x="500" y="108" fill="#fff" fontFamily="Space Grotesk" fontWeight="700" fontSize="34">2.4k</text>
+    <text x="120" y="108" fill="#fff" fontFamily="Space Grotesk Variable" fontWeight="700" fontSize="34">$48.2k</text>
+    <text x="500" y="108" fill="#fff" fontFamily="Space Grotesk Variable" fontWeight="700" fontSize="34">2.4k</text>
     {[40, 62, 48, 78, 58, 92, 70, 100, 84, 120, 96, 132].map((h, i) => (
       <rect key={i} className="v-bar" style={bar(i)} x={120 + i * 30} y={300 - h * 1.3} width="18" height={h * 1.3} fill="url(#g-dsh)" opacity={0.55 + i * 0.04} />
     ))}

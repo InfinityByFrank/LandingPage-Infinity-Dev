@@ -301,8 +301,13 @@ const initHeroCanvas = (canvas: HTMLCanvasElement, still: boolean) => {
     scrollY = window.scrollY
   }
 
+  const onResize = () => {
+    resize()
+    if (still) draw(0)
+  }
+
   resize()
-  window.addEventListener('resize', resize)
+  window.addEventListener('resize', onResize)
   window.addEventListener('pointermove', onMove, { passive: true })
   window.addEventListener('scroll', onScroll, { passive: true })
   const io = new IntersectionObserver(([entry]) => {
@@ -316,7 +321,7 @@ const initHeroCanvas = (canvas: HTMLCanvasElement, still: boolean) => {
   return () => {
     cancelAnimationFrame(raf)
     io.disconnect()
-    window.removeEventListener('resize', resize)
+    window.removeEventListener('resize', onResize)
     window.removeEventListener('pointermove', onMove)
     window.removeEventListener('scroll', onScroll)
   }
@@ -355,13 +360,11 @@ export const useFx = () => {
       } catch {
         /* sin almacenamiento */
       }
-      const dur = seen ? 600 : 1900
+      const dur = seen ? 450 : 1300
       const t0 = performance.now()
-      let loaded = document.readyState === 'complete'
-      window.addEventListener('load', () => (loaded = true), { once: true })
       const tick = (now: number) => {
         const p = clamp((now - t0) / dur)
-        const shown = loaded || p < 0.9 ? p : 0.9
+        const shown = p
         const eased = 1 - (1 - shown) ** 3
         loader.style.setProperty('--p', String(eased))
         if (ldn) ldn.textContent = String(Math.round(eased * 100))
@@ -476,7 +479,7 @@ export const useFx = () => {
 
       for (const s of scrubs) {
         const r = s.el.getBoundingClientRect()
-        const p = reduce ? 1 : clamp((vh * 0.82 - r.top) / (r.height + vh * 0.28))
+        const p = reduce || r.top > vh * 1.05 ? 1 : clamp((vh * 0.82 - r.top) / (r.height + vh * 0.28))
         const n = Math.round(p * s.words.length)
         s.words.forEach((w, i) => w.classList.toggle('on', i < n))
       }
