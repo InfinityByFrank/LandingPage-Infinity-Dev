@@ -9,6 +9,8 @@ import { Footer } from "../components/Footer";
 import { Process } from "../components/Process";
 import { Services } from "../components/Services";
 import { Work } from "../components/Work";
+import { WhyInfinity } from "../components/WhyInfinity";
+import { Beliefs } from "../components/Beliefs";
 import { faqs } from "../data/faq";
 import Layout from "../layouts/Layout.astro";
 
@@ -47,9 +49,12 @@ const alternates = { es: "/", en: "/en/" };
 		<Manifesto />
 		<Services />
 		<Process />
+		<WhyInfinity />
 
 		<!-- Hidrata solo lo que tiene estado: el modal de proyectos -->
 		<Work lang={lang} client:load />
+
+		<Beliefs />
 
 		<Faq />
 		<CTA />

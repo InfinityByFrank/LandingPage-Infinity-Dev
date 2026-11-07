@@ -573,3 +573,75 @@ body.menu-open{overflow:hidden}
 }
 
 .bottom-blur.off{opacity:0}
+
+/* ===== por qué infinity (bento) ===== */
+.why{background:var(--bg);padding:clamp(80px,10vw,150px) 0}
+.why-head{display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:end;margin-bottom:clamp(40px,6vw,90px)}
+.why-head p{color:var(--slate);margin-top:24px;max-width:21em}
+.why-head h2{font-size:clamp(2.6rem,7vw,7.6rem);line-height:.9;letter-spacing:-.06em}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.why-cell{position:relative;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(22px,2.6vw,40px);overflow:hidden}
+.why-text{display:flex;flex-direction:column;justify-content:space-between;gap:50px;min-height:clamp(440px,42vw,600px)}
+.why-brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.1rem}
+.why-text h3{font-size:clamp(1.6rem,2.3vw,2.4rem);letter-spacing:-.045em;line-height:1}
+.why-text p{color:var(--slate);margin-top:16px;max-width:26em}
+.why-list{list-style:none;margin-top:26px}
+.why-list li{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-weight:600;font-size:.98rem}
+.why-list li:last-child{border-bottom:1px solid var(--line)}
+.why-list .ck{width:24px;height:24px;border-radius:50%;background:var(--bg-soft);display:grid;place-items:center;flex-shrink:0}
+.why-list .ck svg{width:13px;height:13px}
+.why-visual{background:linear-gradient(180deg,#f7f7fa,#e9e9f0);display:flex;justify-content:center;align-items:flex-end}
+.why-phone{width:clamp(180px,17vw,250px);aspect-ratio:9/19;border:7px solid #0d0d12;border-bottom:0;border-radius:34px 34px 0 0;overflow:hidden;background:#000;box-shadow:0 40px 70px -26px rgba(10,10,16,.5);margin-top:70px;align-self:flex-end}
+.why-phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+.why-float{position:absolute;display:flex;align-items:center;gap:12px;padding:12px 16px 12px 12px;border-radius:16px;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);box-shadow:0 20px 40px -20px rgba(10,10,16,.35);animation:floaty 6s ease-in-out infinite}
+.why-float .ic{width:38px;height:38px;border-radius:12px;background:var(--grad);color:#fff;display:grid;place-items:center;flex-shrink:0}
+.why-float .ic svg{width:19px;height:19px}
+.why-float b{display:block;font-size:.92rem;font-weight:700}
+.why-float small{display:block;color:var(--muted);font-size:.78rem}
+.why-float.f1{left:6%;top:16%}
+.why-float.f2{right:5%;top:46%;animation-delay:1.2s}
+.why-hot{background:var(--grad);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.why-hot .lab-s{font-family:var(--mono);font-size:.74rem}
+.why-hot .big{font-family:var(--display);font-weight:700;font-size:clamp(6rem,13vw,13rem);line-height:.8;letter-spacing:-.07em;display:flex;align-items:flex-end;gap:12px}
+.why-hot .big small{font-size:clamp(1.6rem,3vw,3rem);letter-spacing:-.04em;font-weight:600;padding-bottom:.35em}
+.why-hot p{margin-top:20px;font-size:1.1rem;max-width:16em;font-weight:500}
+.why-mini{min-height:clamp(210px,18vw,270px);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.why-mini .mini-top b{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,2vw,2rem);letter-spacing:-.045em}
+.why-mini p{color:var(--slate);max-width:23em}
+.why-mini.dark{background:var(--dark);color:#fff}
+.why-mini.dark p{color:rgba(255,255,255,.65)}
+.why-langs{display:flex;flex-wrap:wrap;gap:8px}
+.why-langs span{font-family:var(--mono);font-size:.72rem;border:1px solid var(--line);padding:6px 10px}
+
+/* ===== lo que creemos (2x2) ===== */
+.bel{background:var(--bg-soft);padding:clamp(80px,10vw,150px) 0}
+.bel-grid{display:grid;grid-template-columns:1fr 2fr;align-items:start}
+.bel-side{position:sticky;top:calc(var(--nav-h) + 30px);min-height:calc(100svh - var(--nav-h) - 80px);display:flex;flex-direction:column;justify-content:space-between;gap:50px;padding-right:30px}
+.bel-side h2{font-size:clamp(3rem,6.6vw,7.6rem);line-height:.88;letter-spacing:-.06em;margin-top:30px}
+.bel-side p{color:var(--slate);margin-top:24px;max-width:21em}
+.bel-side blockquote{font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,1.7vw,1.7rem);letter-spacing:-.035em;line-height:1.15;max-width:15em}
+.bel-side .q{display:block;font-size:4.4rem;line-height:.6;color:var(--line);margin-bottom:10px}
+.bel-side cite{display:block;margin-top:18px;font-family:var(--mono);font-style:normal;font-weight:400;font-size:.72rem;text-transform:uppercase;color:var(--muted)}
+.bel-cards{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.bel-card{display:flex;flex-direction:column;justify-content:space-between;gap:70px;min-height:clamp(320px,29vw,440px);padding:clamp(20px,2.4vw,36px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .5s var(--ease),color .5s;outline:none}
+.bel-top{display:flex;justify-content:space-between;align-items:flex-start;font-family:var(--mono);font-size:.72rem;text-transform:uppercase}
+.bel-top .chip{background:#fff;padding:12px 14px;border-radius:10px;color:var(--ink);transition:background .5s,color .5s}
+.bel-card h3{font-size:clamp(1.5rem,2.2vw,2.3rem);letter-spacing:-.045em;line-height:1}
+.bel-card p{color:var(--slate);margin-top:14px;max-width:24em;transition:color .5s}
+.bel-card:hover,.bel-card:focus-visible{background:var(--dark);color:#fff}
+.bel-card:hover p,.bel-card:focus-visible p{color:rgba(255,255,255,.65)}
+.bel-card:hover .chip,.bel-card:focus-visible .chip{background:var(--grad);color:#fff}
+
+@media(max-width:1100px){
+  .why-head{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .why-text{grid-column:1/-1;min-height:0}
+  .why-visual{min-height:420px}
+  .bel-grid{grid-template-columns:1fr}
+  .bel-side{position:static;min-height:0;padding:0 0 40px}
+}
+@media(max-width:620px){
+  .why-grid,.bel-cards{grid-template-columns:1fr}
+  .why-visual{min-height:380px}
+  .bel-card{min-height:260px;gap:40px}
+}
