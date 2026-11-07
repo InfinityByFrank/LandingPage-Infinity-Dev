@@ -725,9 +725,10 @@ body.menu-open{overflow:hidden}
 /* ===== todos los trabajos ===== */
 .aw{padding-top:calc(var(--nav-h) + clamp(50px,7vw,100px));background:var(--bg)}
 .aw .sec-head{max-width:none}
-.aw-back{display:inline-flex;align-items:center;gap:10px;margin-bottom:34px;font-family:var(--mono);font-size:.74rem;text-transform:uppercase;color:var(--ink)}
+.aw-back{display:flex;width:fit-content;align-items:center;gap:10px;margin-bottom:clamp(34px,5vw,64px);font-family:var(--mono);font-size:.74rem;text-transform:uppercase;color:var(--ink)}
 .aw-back svg{width:16px;height:16px;transition:transform .4s var(--ease-out)}
 .aw-back:hover svg{transform:translateX(-5px)}
+.aw .sec-head .lab{display:flex}
 .aw .sec-head h1{font-size:clamp(3rem,8.4vw,9.4rem);line-height:.88;letter-spacing:-.06em;margin-top:26px}
 .aw .sec-head p{max-width:30em}
 .aw-filters{display:flex;flex-wrap:wrap;gap:0;margin:clamp(40px,6vw,80px) 0 0;border-top:1px solid var(--ink)}
