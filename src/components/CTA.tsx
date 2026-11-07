@@ -1,18 +1,20 @@
 import { TURNSTILE_SITE_KEY } from '../data/site'
 
 import React from 'react'
+import { Lab } from './Words'
 
 export const CTA = () => {
   return (
-    <section className="cta" id="contacto">
+    <section className="cta" id="contacto" data-nav="dark">
       <div className="wrap">
-        <div className="cta-card reveal">
-          <span className="blob b1"></span><span className="blob b2"></span>
-          <div className="cta-left">
-            <span className="eyebrow" style={{ color: '#c8a8ff' }}
-            ><span data-es>Hablemos</span><span data-en>Let's talk</span></span
-            >
-            <h2 style={{ marginTop: '16px' }}>
+        <div className="on-dark"><Lab es="CONTACTO" en="CONTACT" light /></div>
+        <div className="cta-big reveal" aria-hidden="true">
+          <span data-es>Hablem<span className="o"></span>s</span>
+          <span data-en>Let’s talk</span>
+        </div>
+        <div className="cta-card">
+          <div className="cta-left reveal">
+            <h2>
               <span data-es>Cuéntanos tu idea.<br />Te respondemos en 24 h.</span
               ><span data-en>Tell us your idea.<br />We reply within 24 h.</span>
             </h2>
@@ -59,7 +61,7 @@ export const CTA = () => {
               </li>
             </ul>
           </div>
-          <div className="form">
+          <div className="form reveal d1">
             <form id="quoteForm" noValidate>
               <h3>
                 <span data-es>Solicita tu cotización</span><span data-en

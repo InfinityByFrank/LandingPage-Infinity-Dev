@@ -11,17 +11,17 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
   const p = langPrefix(lang)
 
   return (
-    <footer>
+    <footer data-nav="dark">
       <div className="wrap">
         <div className="foot-grid">
           <div className="foot-brand">
             <a href={`${p}/#top`} className="brand">
               <img
-                src="/logo_basic.webp"
+                src="/logo-basic.svg"
                 alt="Infinity Dev"
                 style={{ width: '38px', height: '38px' }}
               />
-              <span className="brand-name">INFINITY <b className="grad-text">DEV</b></span
+              <span className="brand-name">Infinity <b className="grad-text">Dev</b></span
               >
             </a>
             <p>
@@ -74,6 +74,7 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
             >
           </div>
         </div>
+        <div className="foot-mark" aria-hidden="true">infinity dev</div>
         <div className="foot-bottom">
           <span
           >© 2026 Infinity Dev — <span data-es>Tu sitio web, tu historia.</span

@@ -25,13 +25,15 @@ const buildMobileMenu = (open: boolean) => {
 
   const menu = document.createElement('div');
   menu.id = 'mobileMenu';
-  menu.style.cssText =
-    'position:fixed;inset:74px 16px auto 16px;z-index:99;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:4px';
   menu.innerHTML = navLinks.innerHTML;
 
-  menu.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
-    link.style.cssText = 'padding:13px 14px;border-radius:12px;font-weight:600;color:var(--slate)';
-  });
+  const cta = document.querySelector<HTMLAnchorElement>('.nav-cta');
+  if (cta) {
+    const link = document.createElement('a');
+    link.href = cta.getAttribute('href') ?? '#contacto';
+    link.innerHTML = cta.innerHTML;
+    menu.appendChild(link);
+  }
 
   document.body.appendChild(menu);
 };

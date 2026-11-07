@@ -13,10 +13,15 @@ export const NavBar = ({ lang = 'es', alternates = { es: '/', en: '/en/' } }: Pr
     <header className="nav" id="nav">
       <div className="nav-inner">
         <a href={`${p}/#top`} className="brand">
-          <img src="/logo_basic.webp" alt="Infinity Dev" />
-          <span className="brand-name">INFINITY <b className="grad-text">DEV</b></span>
+          <img className="logo-c" src="/logo-color.svg" alt="Infinity Dev" width="30" height="34" />
+          <img className="logo-l" src="/logo-basic.svg" alt="" aria-hidden="true" width="30" height="34" />
+          <span className="brand-name">Infinity <b className="grad-text">Dev</b></span>
+          <span className="brand-chip"><span data-es>Hecho a medida</span><span data-en>Built custom</span></span>
         </a>
         <nav className="nav-links">
+          <a href={`${p}/#nosotros`}
+          ><span data-es>Nosotros</span><span data-en>About</span></a
+          >
           <a href={`${p}/#servicios`}
           ><span data-es>Servicios</span><span data-en>Services</span></a
           >
@@ -25,9 +30,6 @@ export const NavBar = ({ lang = 'es', alternates = { es: '/', en: '/en/' } }: Pr
           >
           <a href={`${p}/#trabajo`}
           ><span data-es>Portafolio</span><span data-en>Work</span></a
-          >
-          <a href={`${p}/trabajos/`} className="nav-all"
-          ><span data-es>Todos los trabajos</span><span data-en>All work</span></a
           >
           <a href={`${p}/#faq`}>FAQ</a>
         </nav>

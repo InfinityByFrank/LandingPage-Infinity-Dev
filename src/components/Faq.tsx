@@ -1,13 +1,14 @@
 import { faqs } from '../data/faq'
 import { T } from './i18n'
+import { Lab } from './Words'
 
 export const Faq = () => {
   return (
-    <section className="sec" id="faq" style={{ background: 'var(--bg-soft)' }}>
+    <section className="sec faqsec" id="faq">
       <div className="wrap">
         <div className="faq-wrap">
           <div className="sec-head reveal" style={{ margin: 0 }}>
-            <span className="eyebrow">FAQ</span>
+            <Lab es="PREGUNTAS" en="QUESTIONS" n="FAQ" />
             <h2>
               <span data-es>Preguntas<br />frecuentes</span><span data-en
               >Frequently<br />asked</span>

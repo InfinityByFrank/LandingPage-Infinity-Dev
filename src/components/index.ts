@@ -9,3 +9,5 @@ export * from './Services'
 export * from './Stats'
 export * from './Work'
 export * from './AllWork'
+
+export * from './Manifesto'

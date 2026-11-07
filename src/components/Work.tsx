@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { projects, type Project } from '../data/projects'
 import { ProjectModal } from './ProjectModal'
+import { Lab } from './Words'
 import { LangContext, Lx, T, langPrefix, type Lang } from './i18n'
 
 const CardCover = ({ project }: { project: Project }) => (
@@ -28,9 +29,7 @@ export const Work = ({ lang = 'es' }: { lang?: Lang }) => {
     <section className="sec" id="trabajo">
       <div className="wrap">
         <div className="sec-head reveal" suppressHydrationWarning>
-          <span className="eyebrow">
-            <Lx es={<>Portafolio</>} en={<>Selected work</>} />
-          </span>
+          <Lab es="PORTAFOLIO" en="SELECTED WORK" />
           <h2>
             <Lx es={<>Proyectos pensados<br />al detalle.</>} en={<>Projects crafted<br />down to the detail.</>} />
           </h2>
