@@ -142,7 +142,7 @@ const initHeroCanvas = (canvas: HTMLCanvasElement, still: boolean) => {
 
   const resize = () => {
     const r = canvas.getBoundingClientRect()
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.75)
+    const dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 1.75)
     w = r.width
     h = r.height
     canvas.width = Math.round(w * dpr)
@@ -288,8 +288,10 @@ const initHeroCanvas = (canvas: HTMLCanvasElement, still: boolean) => {
     ctx.globalCompositeOperation = 'source-over'
   }
 
+  let frame = 0
   const loop = (now: number) => {
-    if (visible && !document.hidden) draw(now)
+    // en móviles se dibuja a ~30 fps para ahorrar batería
+    if (visible && !document.hidden && !(mobile && frame++ % 2)) draw(now)
     raf = requestAnimationFrame(loop)
   }
 
@@ -383,7 +385,8 @@ export const useFx = () => {
     /* ---------- smooth scroll ---------- */
     let lenis: Lenis | null = null
     let rafId = 0
-    if (!reduce) {
+    const coarse = window.matchMedia?.('(pointer: coarse)').matches ?? false
+    if (!reduce && !coarse) {
       lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 0.95 })
       const raf = (time: number) => {
         lenis?.raf(time)
@@ -466,7 +469,7 @@ export const useFx = () => {
       }
       lastY = y
 
-      if (!reduce) {
+      if (!reduce && window.innerWidth > 980) {
         for (const el of parallax) {
           const r = el.getBoundingClientRect()
           if (r.bottom < -200 || r.top > vh + 200) continue
@@ -507,6 +510,20 @@ export const useFx = () => {
         }
       }
 
+      if (proc && steps.length && overflow === 0 && window.innerWidth <= 980) {
+        let idx = 0
+        let best = Infinity
+        steps.forEach((s, i) => {
+          const sr = s.getBoundingClientRect()
+          const d = Math.abs(sr.top + sr.height / 2 - vh * 0.55)
+          if (d < best) {
+            best = d
+            idx = i
+          }
+        })
+        steps.forEach((s, i) => s.classList.toggle('active', i <= idx))
+      }
+
       if (proc && track && overflow > 0) {
         const r = proc.getBoundingClientRect()
         const total = proc.offsetHeight - vh
@@ -522,9 +539,19 @@ export const useFx = () => {
       }
     }
 
+    let ticking = false
+    const onScrollRaf = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        ticking = false
+        update()
+      })
+    }
+
     sizeProc()
     update()
-    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('scroll', onScrollRaf, { passive: true })
     window.addEventListener('resize', () => {
       sizeProc()
       update()
@@ -533,7 +560,7 @@ export const useFx = () => {
       sizeProc()
       update()
     })
-    cleanups.push(() => window.removeEventListener('scroll', update))
+    cleanups.push(() => window.removeEventListener('scroll', onScrollRaf))
 
     /* ---------- cursor + magnetic buttons ---------- */
     if (finePointer && !reduce) {
