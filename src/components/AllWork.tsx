@@ -2,12 +2,14 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { projects } from '../data/projects'
 import { productDetail } from '../data/productDetails'
 import { filterLabels, kindLabels, products, type ProductKind } from '../data/products'
+import { Art } from './Art'
 import { ProjectModal } from './ProjectModal'
+import { Lab } from './Words'
 import { LangContext, Lx, T, langPrefix, type Lang } from './i18n'
 
 type Filter = 'all' | ProductKind
 
-const PAGE_SIZE = 5
+const PAGE_SIZE = 6
 const FILTERS: Filter[] = ['all', 'app', 'web', 'dashboard']
 
 const readUrl = (): { filter: Filter; page: number } => {
@@ -87,9 +89,7 @@ export const AllWork = ({ lang = 'es' }: { lang?: Lang }) => {
             </svg>
             <Lx es={<>Volver al inicio</>} en={<>Back to home</>} />
           </a>
-          <span className="eyebrow">
-            <Lx es={<>Todos los trabajos</>} en={<>All work</>} />
-          </span>
+          <Lab es="TODOS LOS TRABAJOS" en="ALL WORK" />
           <h1>
             <Lx es={<>Cada producto,<br />por separado.</>} en={<>Every product,<br />on its own.</>} />
           </h1>
@@ -132,18 +132,7 @@ export const AllWork = ({ lang = 'es' }: { lang?: Lang }) => {
                   onClick={() => setOpenId(product.id)}
                   aria-label={product.name[lang]}
                 >
-                  <div className={`work-cover ${product.images[0].kind}`} aria-hidden="true">
-                    {product.images.map((img, i) => (
-                      <img
-                        key={img.src}
-                        src={img.src}
-                        alt=""
-                        loading="lazy"
-                        decoding="async"
-                        className={`cv cv${i + 1} ${img.kind}`}
-                      />
-                    ))}
-                  </div>
+                  <Art images={product.images} />
                 </button>
 
                 <div className="aw-body">
