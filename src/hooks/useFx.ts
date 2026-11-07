@@ -355,7 +355,7 @@ export const useFx = () => {
       } catch {
         /* sin almacenamiento */
       }
-      const dur = seen ? 700 : 2300
+      const dur = seen ? 600 : 1900
       const t0 = performance.now()
       let loaded = document.readyState === 'complete'
       window.addEventListener('load', () => (loaded = true), { once: true })

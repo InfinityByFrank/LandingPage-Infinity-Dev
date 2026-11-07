@@ -11,18 +11,29 @@ const Plus = () => (
 )
 
 /** Los dos proyectos grandes y los tres de la lista (el resto vive en /trabajos/) */
-const FEATURED = ['infinity-lens', 'cj-store']
-const MORE = ['food-co', 'sano', 'pixoteria']
+const FEATURED = ['cj-store', 'sano']
+const MORE = ['food-co', 'pixoteria', 'infinity-lens']
+
+/** Capturas horizontales (de navegador) para presentar cada proyecto: la principal y una de apoyo */
+const SHOTS: Record<string, string[]> = {
+  'cj-store': ['/projects/cj-store/web-inicio.webp', '/projects/cj-store/dash-inicio.webp'],
+  sano: ['/projects/sano/landing-hero.webp', '/projects/sano/dash-inicio.webp'],
+  'food-co': ['/projects/food-co/web-hero.webp', '/projects/food-co/dash-r2.webp'],
+  pixoteria: ['/projects/pixoteria/web-inicio.webp', '/projects/pixoteria/web-barajas.webp'],
+  'infinity-lens': ['/projects/lens-landing/desktop-01-portada.webp'],
+}
 
 const pick = (ids: string[]) => ids.map((id) => projects.find((p) => p.id === id)).filter(Boolean) as Project[]
 
-const Art = ({ project }: { project: Project }) => (
-  <div className={`sl-art ${project.cover[0].kind}`} aria-hidden="true">
-    {project.cover.map((img, i) => (
-      <img key={img.src} src={img.src} alt="" loading="lazy" decoding="async" className={`sl-img sl-img${i + 1} ${img.kind}`} />
-    ))}
-  </div>
-)
+const Art = ({ project }: { project: Project }) => {
+  const [main, extra] = SHOTS[project.id] ?? []
+  return (
+    <div className="sl-art" aria-hidden="true">
+      {main && <img src={main} alt="" loading="lazy" decoding="async" className="sl-img sl-img1" />}
+      {extra && <img src={extra} alt="" loading="lazy" decoding="async" className="sl-img sl-img2" />}
+    </div>
+  )
+}
 
 export const Work = ({ lang = 'es' }: { lang?: Lang }) => {
   const [openId, setOpenId] = useState<string | null>(null)
@@ -89,7 +100,7 @@ export const Work = ({ lang = 'es' }: { lang?: Lang }) => {
                   <button type="button" onMouseEnter={() => setHot(i)} onFocus={() => setHot(i)} onClick={() => setOpenId(p.id)} aria-haspopup="dialog">
                     <span className="ml-idx">{String(i + 1).padStart(2, '0')}.</span>
                     <span className="ml-thumb" style={{ background: p.tone }} aria-hidden="true">
-                      <img src={p.cover[0].src} alt="" loading="lazy" decoding="async" className={p.cover[0].kind} />
+                      <img src={SHOTS[p.id]?.[0] ?? p.cover[0].src} alt="" loading="lazy" decoding="async" />
                     </span>
                     <span className="ml-info">
                       <span className="ml-tag"><T t={p.tag} /></span>
