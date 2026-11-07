@@ -10,7 +10,7 @@ interface Props {
 const { lang } = Astro.props;
 
 const site = Astro.site ?? new URL("https://infinitydev.agency");
-const alternates = { es: "/trabajos", en: "/en/trabajos" };
+const alternates = { es: "/trabajos/", en: "/en/trabajos/" };
 const pageUrl = new URL(alternates[lang], site).toString();
 const homeUrl = new URL(lang === "en" ? "/en/" : "/", site).toString();
 

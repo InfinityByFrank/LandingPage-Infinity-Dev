@@ -80,7 +80,7 @@ export const Work = ({ lang = 'es' }: { lang?: Lang }) => {
         </div>
 
         <div className="work-all reveal" suppressHydrationWarning>
-          <a href={`${langPrefix(lang)}/trabajos`} className="btn btn-ghost btn-lg">
+          <a href={`${langPrefix(lang)}/trabajos/`} className="btn btn-ghost btn-lg">
             <Lx es={<>Ver todos los trabajos</>} en={<>View all work</>} />
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M13 6l6 6-6 6" />

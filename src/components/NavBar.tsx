@@ -26,7 +26,7 @@ export const NavBar = ({ lang = 'es', alternates = { es: '/', en: '/en/' } }: Pr
           <a href={`${p}/#trabajo`}
           ><span data-es>Portafolio</span><span data-en>Work</span></a
           >
-          <a href={`${p}/trabajos`} className="nav-all"
+          <a href={`${p}/trabajos/`} className="nav-all"
           ><span data-es>Todos los trabajos</span><span data-en>All work</span></a
           >
           <a href={`${p}/#faq`}>FAQ</a>

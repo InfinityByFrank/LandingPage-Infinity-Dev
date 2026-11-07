@@ -56,7 +56,7 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
             <a href={`${p}/#trabajo`}
             ><span data-es>Portafolio</span><span data-en>Work</span></a
             >
-            <a href={`${p}/trabajos`}
+            <a href={`${p}/trabajos/`}
             ><span data-es>Todos los trabajos</span><span data-en>All work</span></a
             >
             <a href={`${p}/#faq`}>FAQ</a>
