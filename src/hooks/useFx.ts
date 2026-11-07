@@ -355,7 +355,7 @@ export const useFx = () => {
       } catch {
         /* sin almacenamiento */
       }
-      const dur = seen ? 450 : 1300
+      const dur = seen ? 700 : 2300
       const t0 = performance.now()
       let loaded = document.readyState === 'complete'
       window.addEventListener('load', () => (loaded = true), { once: true })
@@ -419,6 +419,8 @@ export const useFx = () => {
       words: Array.from(el.querySelectorAll<HTMLElement>('.w')).filter((w) => w.offsetParent !== null || w.getClientRects().length),
     }))
     const darkSections = Array.from(document.querySelectorAll<HTMLElement>('[data-nav="dark"]'))
+    const blurEl = document.querySelector<HTMLElement>('.bottom-blur')
+    const footerEl = document.querySelector<HTMLElement>('footer')
     const proc = document.querySelector<HTMLElement>('[data-proc]')
     const track = proc?.querySelector<HTMLElement>('[data-proc-track]') ?? null
     const steps = track ? Array.from(track.querySelectorAll<HTMLElement>('.step')) : []
@@ -444,6 +446,7 @@ export const useFx = () => {
       const vh = window.innerHeight
       const max = document.documentElement.scrollHeight - vh
 
+      if (blurEl && footerEl) blurEl.classList.toggle('off', footerEl.getBoundingClientRect().top < vh - 30)
       progress?.style.setProperty('--sp', String(max > 0 ? clamp(y / max) : 0))
 
       if (nav) {
