@@ -419,6 +419,9 @@ export const useFx = () => {
       words: Array.from(el.querySelectorAll<HTMLElement>('.w')).filter((w) => w.offsetParent !== null || w.getClientRects().length),
     }))
     const darkSections = Array.from(document.querySelectorAll<HTMLElement>('[data-nav="dark"]'))
+    const bel = document.querySelector<HTMLElement>('[data-bel]')
+    const belCards = bel ? Array.from(bel.querySelectorAll<HTMLElement>('.bel-card')) : []
+    let belIdx = 0
     const blurEl = document.querySelector<HTMLElement>('.bottom-blur')
     const footerEl = document.querySelector<HTMLElement>('footer')
     const proc = document.querySelector<HTMLElement>('[data-proc]')
@@ -476,6 +479,29 @@ export const useFx = () => {
         const p = reduce ? 1 : clamp((vh * 0.82 - r.top) / (r.height + vh * 0.28))
         const n = Math.round(p * s.words.length)
         s.words.forEach((w, i) => w.classList.toggle('on', i < n))
+      }
+
+      if (bel && belCards.length) {
+        let idx = 0
+        if (window.innerWidth > 980) {
+          const r = bel.getBoundingClientRect()
+          const p = clamp(-r.top / Math.max(1, bel.offsetHeight - vh))
+          idx = Math.min(belCards.length - 1, Math.floor(p * belCards.length * 0.999))
+        } else {
+          let best = Infinity
+          belCards.forEach((c, i) => {
+            const cr = c.getBoundingClientRect()
+            const d = Math.abs(cr.top + cr.height / 2 - vh / 2)
+            if (d < best) {
+              best = d
+              idx = i
+            }
+          })
+        }
+        if (idx !== belIdx || !belCards[idx].classList.contains('active')) {
+          belIdx = idx
+          belCards.forEach((c, i) => c.classList.toggle('active', i === idx))
+        }
       }
 
       if (proc && track && overflow > 0) {

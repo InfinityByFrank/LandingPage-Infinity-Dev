@@ -8,21 +8,22 @@ const items = [
 ]
 
 export const Beliefs = () => (
-  <section className="bel" id="creemos">
+  <section className="bel" id="creemos" data-bel>
+    <div className="bel-pin">
     <div className="wrap bel-grid">
       <aside className="bel-side">
         <div>
           <Lab es="LO QUE CREEMOS" en="WHAT WE BELIEVE" />
-          <h2 className="reveal">
+          <h2>
             <span data-es>Lo que<br />nos guía</span>
             <span data-en>What<br />guides us</span>
           </h2>
-          <p className="reveal d1">
+          <p>
             <span data-es>Cuatro principios que se notan en cada proyecto, sin importar el tamaño ni la tecnología.</span>
             <span data-en>Four principles you can feel in every project, whatever the size or technology.</span>
           </p>
         </div>
-        <blockquote className="reveal d2">
+        <blockquote>
           <span className="q" aria-hidden="true">“</span>
           <span data-es>Un buen producto se nota en lo que decidimos no hacer.</span>
           <span data-en>A good product shows in what we decide not to do.</span>
@@ -32,7 +33,7 @@ export const Beliefs = () => (
 
       <div className="bel-cards">
         {items.map((it, i) => (
-          <article className={`bel-card reveal${i % 2 ? ' d1' : ''}`} key={it.n} tabIndex={0}>
+          <article className={`bel-card${i === 0 ? ' active' : ''}`} key={it.n}>
             <div className="bel-top"><span className="chip">{it.n}.</span><span className="kk"><span data-es>{it.k[0]}</span><span data-en>{it.k[1]}</span></span></div>
             <div className="bel-bot">
               <h3><span data-es>{it.t[0]}</span><span data-en>{it.t[1]}</span></h3>
@@ -41,6 +42,7 @@ export const Beliefs = () => (
           </article>
         ))}
       </div>
+    </div>
     </div>
   </section>
 )
