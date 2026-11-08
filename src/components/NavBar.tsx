@@ -15,7 +15,7 @@ export const NavBar = ({ lang = 'es', alternates = { es: '/', en: '/en/' } }: Pr
         <a href={`${p}/#top`} className="brand">
           <img className="logo-c" src="/logo-color.svg" alt="" width="30" height="34" />
           <img className="logo-l" src="/logo-basic.svg" alt="" aria-hidden="true" width="30" height="34" />
-          <span className="brand-name">Infinity <b className="grad-text">Dev</b></span>
+          <span className="brand-name">Infinity <b className="grad-text">by Frank</b></span>
           <span className="brand-chip"><span data-es>Hecho a medida</span><span data-en>Built custom</span></span>
         </a>
         <nav className="nav-links" aria-label={lang === 'en' ? 'Main' : 'Principal'}>

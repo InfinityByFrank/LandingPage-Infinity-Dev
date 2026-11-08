@@ -21,7 +21,7 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
                 alt=""
                 style={{ width: '38px', height: '38px' }}
               />
-              <span className="brand-name">Infinity <b className="grad-text">Dev</b></span
+              <span className="brand-name">Infinity <b className="grad-text">by Frank</b></span
               >
             </a>
             <p>
@@ -74,10 +74,10 @@ export const Footer = ({ lang = 'es' }: { lang?: Lang }) => {
             >
           </div>
         </div>
-        <div className="foot-mark" aria-hidden="true">infinity dev</div>
+        <div className="foot-mark" aria-hidden="true">infinity by frank</div>
         <div className="foot-bottom">
           <span
-          >© 2026 Infinity Dev — <span data-es>Tu sitio web, tu historia.</span
+          >© 2026 Infinity by Frank — <span data-es>Tu sitio web, tu historia.</span
           ><span data-en>Your website, your story.</span></span
           >
           <div className="socials">

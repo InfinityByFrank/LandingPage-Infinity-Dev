@@ -27,7 +27,7 @@ export const Beliefs = () => (
           <span className="q" aria-hidden="true">“</span>
           <span data-es>Un buen producto se nota en lo que decidimos no hacer.</span>
           <span data-en>A good product shows in what we decide not to do.</span>
-          <cite>Infinity Dev</cite>
+          <cite>Infinity by Frank</cite>
         </blockquote>
       </aside>
 

@@ -29,7 +29,7 @@ export const Manifesto = () => (
         <div className="sig reveal d1">
           <img src="/logo-color.svg" alt="" width="40" height="45" loading="lazy" />
           <div>
-            <b>Infinity Dev</b>
+            <b>Infinity by Frank</b>
             <span data-es>Software único · hecho para tu historia</span><span data-en>Unique software · built for your story</span>
           </div>
         </div>

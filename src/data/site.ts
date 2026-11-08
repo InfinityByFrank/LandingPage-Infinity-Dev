@@ -4,7 +4,7 @@
 export const CONTACT_TO = 'contacto@infinitydev.agency'
 
 /** Remitente: debe pertenecer al dominio verificado en Resend (send.infinitydev.agency) */
-export const CONTACT_FROM = 'Infinity Dev <contacto@send.infinitydev.agency>'
+export const CONTACT_FROM = 'Infinity by Frank <contacto@send.infinitydev.agency>'
 
 /** Enviar un correo de confirmación al visitante (en su idioma) */
 export const SEND_CONFIRMATION = true

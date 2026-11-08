@@ -25,8 +25,8 @@ export const Hero = () => {
           </p>
           <h1 className="hero-tag">
             <span className="sr-only">
-              <span data-es>Infinity Dev, desarrollo de software a medida. </span>
-              <span data-en>Infinity Dev, custom software development. </span>
+              <span data-es>Infinity by Frank, desarrollo de software a medida. </span>
+              <span data-en>Infinity by Frank, custom software development. </span>
             </span>
             <Words
               es={[['Software único, hecho para'], ['tu historia.', 'hl']]}

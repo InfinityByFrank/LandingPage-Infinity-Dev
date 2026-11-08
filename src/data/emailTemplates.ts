@@ -69,7 +69,7 @@ const shell = ({ lang, title, preheader, eyebrow, heading, body, footerNote }: S
 
     <tr>
       <td align="center" bgcolor="${COLOR.ink}" style="background:${COLOR.ink};background-image:radial-gradient(circle at 85% 0%,rgba(128,48,192,.55),rgba(23,27,36,0) 55%),radial-gradient(circle at 5% 100%,rgba(32,192,224,.35),rgba(23,27,36,0) 50%);padding:40px 24px 34px">
-        <img src="${EMAIL_LOGO_URL}" width="190" alt="Infinity Dev" style="display:block;width:190px;max-width:70%;height:auto;border:0;margin:0 auto" />
+        <img src="${EMAIL_LOGO_URL}" width="190" alt="Infinity by Frank" style="display:block;width:190px;max-width:70%;height:auto;border:0;margin:0 auto" />
       </td>
     </tr>
     <tr><td height="5" style="height:5px;line-height:5px;font-size:0;background:${COLOR.violet};background-image:${GRADIENT}">&nbsp;</td></tr>
@@ -185,7 +185,7 @@ export const ownerEmail = (data: OwnerData) => {
 
 const copy = {
   es: {
-    subject: 'Recibimos tu solicitud — Infinity Dev',
+    subject: 'Recibimos tu solicitud — Infinity by Frank',
     preheader: 'Gracias por escribirnos. Te respondemos en menos de 24 horas hábiles.',
     eyebrow: 'Solicitud recibida',
     heading: (name: string) => `Gracias, ${name}`,
@@ -206,7 +206,7 @@ const copy = {
     reply: 'Puedes responder a este correo si quieres agregar algo.',
   },
   en: {
-    subject: 'We received your request — Infinity Dev',
+    subject: 'We received your request — Infinity by Frank',
     preheader: 'Thanks for writing to us. We reply within 24 business hours.',
     eyebrow: 'Request received',
     heading: (name: string) => `Thank you, ${name}`,
@@ -288,7 +288,7 @@ export const confirmationEmail = (data: ConfirmationData) => {
     `${t.cta}: ${t.works}`,
     '',
     `${t.reply} ${t.ignore}`,
-    'Infinity Dev · infinitydev.agency',
+    'Infinity by Frank · infinitydev.agency',
   ].join('\n')
 
   return { subject: t.subject, html, text }

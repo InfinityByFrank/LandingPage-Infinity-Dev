@@ -40,12 +40,12 @@ export const Words = ({ es, en, mode = 'mask' }: { es: Seg[]; en: Seg[]; mode?: 
   </>
 )
 
-/** Etiqueta técnica: [ ▮▮▮▮ ID—SECCIÓN / 01 ] */
+/** Etiqueta técnica: [ ▮▮▮▮ IF—SECCIÓN / 01 ] */
 export const Lab = ({ es, en, n, light }: { es: string; en: string; n?: string; light?: boolean }) => (
   <span className={`lab${light ? ' light' : ''}`}>
     <span className="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <span>
-      [ ID—<Lx es={es} en={en} />
+      [ IF—<Lx es={es} en={en} />
       {n && <> / <em>{n}</em></>} ]
     </span>
   </span>

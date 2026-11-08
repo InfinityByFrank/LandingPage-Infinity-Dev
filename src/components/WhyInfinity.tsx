@@ -33,7 +33,7 @@ export const WhyInfinity = () => (
 
       <div className="why-grid">
         <div className="why-cell why-text reveal">
-          <div className="why-brand"><img src="/logo-color.svg" alt="" width="28" height="32" loading="lazy" /> <b>Infinity <span className="grad-text">Dev</span></b></div>
+          <div className="why-brand"><img src="/logo-color.svg" alt="" width="28" height="32" loading="lazy" /> <b>Infinity <span className="grad-text">by Frank</span></b></div>
           <div>
             <h3>
               <span data-es>Menos complejidad, más calidad</span>

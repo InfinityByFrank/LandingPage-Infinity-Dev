@@ -27,24 +27,24 @@ interface Props {
 	loader?: boolean;
 }
 
-const SITE_NAME = 'Infinity Dev';
+const SITE_NAME = 'Infinity by Frank';
 const EMAIL = 'contacto@infinitydev.agency';
 
 const copy = {
 	es: {
-		title: 'Infinity Dev | Software a medida, apps y dashboards',
+		title: 'Infinity by Frank | Software a medida, apps y dashboards',
 		description:
 			'Diseñamos y desarrollamos apps web y móviles, servidores y dashboards a la medida de tu negocio. Sin plantillas: producto propio, de la idea al lanzamiento.',
-		imageAlt: 'Infinity Dev: software único, hecho para tu historia',
+		imageAlt: 'Infinity by Frank: software único, hecho para tu historia',
 		skip: 'Saltar al contenido',
 		locale: 'es_MX',
 		otherLocale: 'en_US',
 	},
 	en: {
-		title: 'Infinity Dev | Custom software, apps and dashboards',
+		title: 'Infinity by Frank | Custom software, apps and dashboards',
 		description:
 			'We design and build web and mobile apps, servers and dashboards tailored to your business. No templates: a product of your own, from idea to launch.',
-		imageAlt: 'Infinity Dev: unique software, built for your story',
+		imageAlt: 'Infinity by Frank: unique software, built for your story',
 		skip: 'Skip to content',
 		locale: 'en_US',
 		otherLocale: 'es_MX',
@@ -90,8 +90,9 @@ const baseJsonLd = [
 		'@type': 'Organization',
 		'@id': organizationId,
 		name: SITE_NAME,
+		alternateName: ['Infinity Dev', 'Infinitydev'],
 		url: siteUrl.toString(),
-		logo: new URL('/apple-touch-icon.png', siteUrl).toString(),
+		logo: new URL('/icon-512.png', siteUrl).toString(),
 		image: new URL('/og-image.jpg', siteUrl).toString(),
 		description,
 		email: EMAIL,
@@ -161,7 +162,10 @@ const structuredData = [...baseJsonLd, ...jsonLd];
 		<link rel="preload" as="font" type="font/woff2" href={spaceGroteskLatin} crossorigin />
 		<link rel="preload" as="font" type="font/woff2" href={manropeLatin} crossorigin />
 		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-		<link rel="icon" type="image/svg+xml" href="/logo-basic.svg" />
+		<link rel="icon" type="image/svg+xml" href="/logo-color.svg" />
+		<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+		<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 		
